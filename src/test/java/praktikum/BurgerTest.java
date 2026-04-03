@@ -53,7 +53,7 @@ public class BurgerTest {
         Mockito.when(filling.getPrice()).thenReturn(100f);
         burger.setBuns(bun);
         burger.addIngredient(filling);
-Assert.assertEquals(700f, burger.getPrice(), 0.01f);
+        Assert.assertEquals(700f, burger.getPrice(), 0.01f);
     }
     @Test
     public void getReceiptContainsBunName() {
@@ -70,8 +70,9 @@ Assert.assertEquals(700f, burger.getPrice(), 0.01f);
 
         burger.setBuns(bun);
         burger.addIngredient(filling);
-
-        Assert.assertTrue(burger.getReceipt().contains("Биокотлета из марсианской Магнолии"));
+        String receipt = burger.getReceipt();
+        Assert.assertTrue(receipt.contains("Краторная булка"));
+        Assert.assertTrue(receipt.contains("Биокотлета из марсианской Магнолии"));
     }
 
     @Test

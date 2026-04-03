@@ -12,7 +12,9 @@ import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class BurgerParameterizedTest {
+
     private Burger burger;
+
     @Mock
     private Bun bun;
 
@@ -36,17 +38,19 @@ public class BurgerParameterizedTest {
     }
     @Parameterized.Parameters(name = "Цена бургера: булка={0}, ингредиент={1}")
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
+        return Arrays.asList(new Object[][] {
                 // нормальные случаи
                 {300f, 100f, 700f},
                 {100f, 200f, 400f},
                 {200f, 0f, 400f},
+
                 // граничный случай, нулевые цены
                 {0f, 0f, 0f},
-                // крайний случай, очень дорогой ингридиент
-                {100f, 1000f, 1200f},
 
+                // крайний случай, очень дорогой ингридиент
+                {100f, 1000f, 1200f}
         });
+
 }  @Test
     public void checkBurgerPriceCalculation() {
         Mockito.when(bun.getPrice()).thenReturn(bunPrice);
