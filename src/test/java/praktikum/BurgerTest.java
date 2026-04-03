@@ -20,26 +20,31 @@ public class BurgerTest {
 
     @Mock
     private Ingredient filling;
+
     @Before
     public void setUp() {
         burger = new Burger();
     }
+
     @Test
     public void setBunsTest() {
         burger.setBuns(bun);
         Assert.assertEquals(bun, burger.bun);
     }
+
     @Test
     public void addIngredientTest() {
         burger.addIngredient(filling);
         Assert.assertEquals(1, burger.ingredients.size());
     }
+
     @Test
     public void removeIngredientTest() {
         burger.addIngredient(filling);
         burger.removeIngredient(0);
         Assert.assertTrue(burger.ingredients.isEmpty());
     }
+
     @Test
     public void moveIngredientTest() {
         burger.addIngredient(sauce);
@@ -47,6 +52,7 @@ public class BurgerTest {
         burger.moveIngredient(0, 1);
         Assert.assertEquals(filling, burger.ingredients.get(0));
     }
+
     @Test
     public void getPriceIngredientsTest() {
         Mockito.when(bun.getPrice()).thenReturn(300f);
@@ -55,6 +61,7 @@ public class BurgerTest {
         burger.addIngredient(filling);
         Assert.assertEquals(700f, burger.getPrice(), 0.01f);
     }
+
     @Test
     public void getReceiptContainsBunName() {
         Mockito.when(bun.getName()).thenReturn("Краторная булка");
@@ -70,14 +77,12 @@ public class BurgerTest {
 
         burger.setBuns(bun);
         burger.addIngredient(filling);
-<<<<<<< HEAD
+
         String receipt = burger.getReceipt();
+
         Assert.assertTrue(receipt.contains("Краторная булка"));
         Assert.assertTrue(receipt.contains("Биокотлета из марсианской Магнолии"));
-=======
-
         Assert.assertTrue(burger.getReceipt().contains("Биокотлета из марсианской Магнолии"));
->>>>>>> c78a3989c062176e357acce8e036a61c079b96e9
     }
 
     @Test
@@ -88,8 +93,4 @@ public class BurgerTest {
 
         Assert.assertTrue(burger.getReceipt().contains("Price: 600,000000"));
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c78a3989c062176e357acce8e036a61c079b96e9
