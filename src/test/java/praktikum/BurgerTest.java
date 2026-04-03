@@ -70,9 +70,14 @@ public class BurgerTest {
 
         burger.setBuns(bun);
         burger.addIngredient(filling);
+<<<<<<< HEAD
         String receipt = burger.getReceipt();
         Assert.assertTrue(receipt.contains("Краторная булка"));
         Assert.assertTrue(receipt.contains("Биокотлета из марсианской Магнолии"));
+=======
+
+        Assert.assertTrue(burger.getReceipt().contains("Биокотлета из марсианской Магнолии"));
+>>>>>>> c78a3989c062176e357acce8e036a61c079b96e9
     }
 
     @Test
@@ -83,4 +88,8 @@ public class BurgerTest {
 
         Assert.assertTrue(burger.getReceipt().contains("Price: 600,000000"));
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c78a3989c062176e357acce8e036a61c079b96e9
